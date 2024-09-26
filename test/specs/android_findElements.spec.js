@@ -7,7 +7,7 @@ describe( "Android Elements Tests ",()=>{
         //the function click is used for clicking on the element 
         //driver.pause is used to pause the run for the time alloted 
         //toBeExisting() =====  WebdriverIO.Element -> isExisting to check whether the element is existing or not !
-        /*except  === When you're writing tests,
+        /*expect  === When you're writing tests,
         you often need to check that values meet certain 
         conditions. expect gives you access to a number of "matchers"
         that let you validate different things on the browser, an element or mock object.*/
@@ -32,7 +32,7 @@ describe( "Android Elements Tests ",()=>{
         
     })
 
-    xit ('Find element by xpath', async ()=>{
+    it ('Find element by xpath', async ()=>{
         //xpath ---->  (//tagname[@attribute = value])
         await $('//android.widget.TextView[@content-desc = "Alert Dialogs"]').click();
 
@@ -45,12 +45,69 @@ describe( "Android Elements Tests ",()=>{
         //find by class assertion
         const className = await $('//android.widget.TextView');
         await expect(className).toHaveText("You selected: 1 , Command two");
+        await driver.pause(5000); 
     });
 
     it ('Find element using android UI automator', async ()=> {
-
          //find element by text contains
-        await $('android=new UiSelector().textContains("Alert")').click();
+        
+        const selector = 'android=new UiSelector().textContains("Alert")';
+        const element = await $(selector);
+        await element.click();
     })
 
+    it('Find Multiple ELements', async ()=>{
+        const expectedList = [
+            'API Demos', "Access'ibility",
+            'Accessibility', 'Animation',
+            'App', 'Content',
+            'Graphics', 'Media',
+            'NFC', 'OS',
+            'Preference', 'Text',
+            'Views'
+        ]
+        const actualList = []
+
+        //find the elements 
+        const textList = await $$('android.widget.TextView');
+
+        //loop through all the elements 
+        for (var i =0; i<textList.length; i++ ){
+            actualList.push(await textList[i].getText());
+        }
+
+        //printing the content 
+        for (var i=0; i<actualList.length; i++ ){
+            console.log(actualList[i]);
+        }
+
+        //assert the list 
+        await expect(actualList).toEqual(expectedList);
+    });
+    
+    it('Entry Field Text', async()=>{
+        //Clicking on the View Element
+        const ViewButton  = await  $(`~Views`);
+        await ViewButton.click();
+        await driver.pause(3000);
+
+        //Clicking on the Auto Complete Element 
+        await $('//android.widget.TextView[@content-desc="Auto Complete"]').click();
+
+        //clciking on the Screentop
+        const selector = 'android=new UiSelector().text("1. Screen Top")';
+        const element = await $(selector);
+        await element.click();
+
+        //Adding Country Name
+        const textField = await $(`//*[@resource-id = "io.appium.android.apis:id/edit"]`);
+        await textField.addValue("India");
+
+        // Verify the countryname 
+        await expect(textField).toHaveText("India");
+
+        
+
+
+    })
 });

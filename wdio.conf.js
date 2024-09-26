@@ -7,7 +7,7 @@ exports.config= {
     // WebdriverIO supports running e2e tests as well as unit and component tests.
     runner: 'local',
     
-    port: 4723,
+    port: 4724,
     //
     // ==================
     // Specify Test Files
@@ -26,7 +26,7 @@ exports.config= {
     //
     specs: [
         // ToDo: define location for spec files here
-        './test/specs/**/*.js'
+        './test/specs/**/android_native*.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -56,24 +56,11 @@ exports.config= {
     //
     capabilities: [{
         'appium:platformName' : 'Android',
-        'appium:platformVersion' : '12.0',
-        'appium:deviceName' : 'Nexus 5X',
-        'appium:automationName' : 'UIAutomator2',
-        //'appium:app' : path.join(process.cwd() ,'app/Android/ApiDemos-debug.apk'),
+        'appium:platformVersion' : '11.0',
+        'appium:deviceName' : 'Pixel 2',
+        'appium:automationName' : 'UiAutomator2',
         "appium:app" : path.join(process.cwd(), "app/android/ApiDemos-debug.apk"),
-        //app\Android\ApiDemos-debug.apk
-    
-        // maxInstances can get overwritten per capability. So if you have an in-house Selenium
-        // grid with only 5 firefox instances available you can make sure that not more than
-        // 5 instances get started at a time.
-        // maxInstances: 5,
-        // //
-        // browserName: 'chrome',
-        // acceptInsecureCerts: true
-        // If outputDir is provided WebdriverIO can capture driver session logs
-        // it is possible to configure which logTypes to include/exclude.
-        // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
-        // excludeDriverLogs: ['bugreport', 'server'],
+
     }],
     //
     // ===================

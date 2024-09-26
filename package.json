@@ -2,16 +2,16 @@
   "name": "my-new-project",
   "devDependencies": {
     "@wdio/appium-service": "^8.7.0",
+    "@wdio/browserstack-service": "^8.38.2",
     "@wdio/cli": "^8.7.0",
     "@wdio/local-runner": "^8.7.0",
     "@wdio/mocha-framework": "^8.7.0",
     "@wdio/spec-reporter": "^8.7.0",
-    "appium": "^2.0.0-beta.61"
+    "appium": "^2.10.3",
+    "appium-xcuitest-driver": "^7.17.6",
+    "ts-node": "^10.9.2"
   },
   "scripts": {
     "wdio": "wdio run ./wdio.conf.js"
-  },
-  "dependencies": {
-    "appium-uiautomator2-driver": "^2.14.0"
-}
+  }
 }
