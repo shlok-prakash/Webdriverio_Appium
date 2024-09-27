@@ -60,7 +60,6 @@ exports.config= {
         'appium:deviceName' : 'Pixel 2',
         'appium:automationName' : 'UiAutomator2',
         "appium:app" : path.join(process.cwd(), "app/android/ApiDemos-debug.apk"),
-
     }],
     //
     // ===================
