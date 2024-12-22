@@ -28,8 +28,8 @@ describe( "Android Elements Tests ",()=>{
         console.log(await className.getText());
 
         //assertion 
-        await expect(className).toHaveText("API Demos");
-        
+       await expect(className).toHaveText("API Demos");
+
     })
 
     it ('Find element by xpath', async ()=>{
@@ -105,9 +105,5 @@ describe( "Android Elements Tests ",()=>{
 
         // Verify the countryname 
         await expect(textField).toHaveText("India");
-
-        
-
-
     })
 });

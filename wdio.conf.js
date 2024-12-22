@@ -7,7 +7,7 @@ exports.config= {
     // WebdriverIO supports running e2e tests as well as unit and component tests.
     runner: 'local',
     
-    port: 4724,
+    port: 4723,
     //
     // ==================
     // Specify Test Files
@@ -57,7 +57,7 @@ exports.config= {
     capabilities: [{
         'appium:platformName' : 'Android',
         'appium:platformVersion' : '11.0',
-        'appium:deviceName' : 'Pixel 2',
+        'appium:deviceName' : 'Pixel 4',
         'appium:automationName' : 'UiAutomator2',
         "appium:app" : path.join(process.cwd(), "app/android/ApiDemos-debug.apk"),
     }],

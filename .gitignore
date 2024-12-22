@@ -1,1 +1,14 @@
-node_modules
+# Node modules
+node_modules/
+
+# IDE-specific files
+.idea/
+
+# Build artifacts
+*.apk
+
+# Logs
+*.log
+
+# Environment and config files (if applicable)
+.env
